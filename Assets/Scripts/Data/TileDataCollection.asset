@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b798c5567c3fc854aa326b27f7ef8d82, type: 3}
+  m_Name: TileDataCollection
+  m_EditorClassIdentifier: 
+  tileDataList:
+  - tileIndex: 1
+    ladderOrSnakeEndPoint: 38
+  - tileIndex: 4
+    ladderOrSnakeEndPoint: 14
+  - tileIndex: 9
+    ladderOrSnakeEndPoint: 31
+  - tileIndex: 17
+    ladderOrSnakeEndPoint: 7
+  - tileIndex: 21
+    ladderOrSnakeEndPoint: 42
+  - tileIndex: 28
+    ladderOrSnakeEndPoint: 84
+  - tileIndex: 54
+    ladderOrSnakeEndPoint: 34
+  - tileIndex: 51
+    ladderOrSnakeEndPoint: 67
+  - tileIndex: 62
+    ladderOrSnakeEndPoint: 19
+  - tileIndex: 64
+    ladderOrSnakeEndPoint: 60
+  - tileIndex: 72
+    ladderOrSnakeEndPoint: 91
+  - tileIndex: 87
+    ladderOrSnakeEndPoint: 36
+  - tileIndex: 80
+    ladderOrSnakeEndPoint: 99
+  - tileIndex: 92
+    ladderOrSnakeEndPoint: 73
+  - tileIndex: 95
+    ladderOrSnakeEndPoint: 75
+  - tileIndex: 98
+    ladderOrSnakeEndPoint: 79
