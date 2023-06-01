@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "TileDataCollection", menuName = "ScriptableObjects/SpawnTileDataCollection", order = 1)]
-public class TileDataCollection : ScriptableObject, ISerializationCallbackReceiver
+public class TileDataCollection : ScriptableObject
 {
     [Serializable]
     public struct TileData
@@ -22,12 +22,11 @@ public class TileDataCollection : ScriptableObject, ISerializationCallbackReceiv
 
     [Header("List must not contain duplicate values.")]
     [SerializeField] List<TileData> tileDataList = new List<TileData>();
-    public Dictionary<int, int> tileDataCollection = new Dictionary<int, int>(); //Serializing to dictionary since we will be making a lot more read operations than write.
 
 
-    private void SerializeTileDataCollection()
+    public Dictionary<int, int> GetTileDataCollection()
     {
-        tileDataCollection.Clear();
+        Dictionary<int, int> tileDataCollection = new Dictionary<int, int>(); //Serializing to dictionary since we will be making a lot more read operations than write.
         for (int i = 0; i < tileDataList.Count; i++)
         {
             if (!tileDataCollection.ContainsKey(tileDataList[i].tileIndex))
@@ -35,12 +34,7 @@ public class TileDataCollection : ScriptableObject, ISerializationCallbackReceiv
                 tileDataCollection.Add(tileDataList[i].tileIndex, tileDataList[i].ladderOrSnakeEndPoint);
             }
         }
-    }
 
-    public void OnBeforeSerialize()
-    {
-        SerializeTileDataCollection();
+        return tileDataCollection;
     }
-
-    public void OnAfterDeserialize() { }
 }

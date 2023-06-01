@@ -1,4 +1,4 @@
-//#define DEBUG_DEFINE
+#define DEBUG_DEFINE
 
 using System.Collections;
 using System.Collections.Generic;
@@ -28,7 +28,7 @@ public class GridTilesBuilder : Singleton<GridTilesBuilder>
 
     private void SetupTiles()
     {
-        int count = gridHeight * gridLength;
+        int count = GetTilesCount();
 
         for (int i = 0; i < gridHeight; i++)
         {
@@ -64,6 +64,23 @@ public class GridTilesBuilder : Singleton<GridTilesBuilder>
         currentTile.transform.localPosition = position;
         currentTile.name = "Tile_" + count;
 #endif
+    }
+    #endregion
+
+    #region Public
+    public int GetTilesCount()
+    {
+        return gridHeight * gridLength;
+    }
+
+    public Vector3 GetPositionForTile(int tileNum)
+    {
+        if(gridPositionCollection.ContainsKey(tileNum))
+        {
+            return gridPositionCollection[tileNum];
+        }
+
+        return Vector3.zero;
     }
     #endregion
 }

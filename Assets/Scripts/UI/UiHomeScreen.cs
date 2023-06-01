@@ -8,6 +8,7 @@ public class UiHomeScreen : MonoBehaviour
     #region Public
     public void OnSinglePlayerClicked()
     {
+        GlobalVariables.pCurrentGameState = GameStates.SinglePlayer;
         SceneManager.LoadSceneAsync(LaddersConfig.GAMEPLAY_SCENE);
     }
     #endregion
