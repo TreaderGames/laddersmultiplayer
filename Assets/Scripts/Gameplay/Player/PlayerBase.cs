@@ -11,7 +11,7 @@ public class PlayerBase : MonoBehaviour
 
     private int currentTileCount = 0;
     #region Unity
-    private void Start()
+    protected virtual void Start()
     {
         tileDataCollection = tileData.GetTileDataCollection();
     }
@@ -32,14 +32,14 @@ public class PlayerBase : MonoBehaviour
     #endregion
 
     #region Private
-    protected virtual void ResolveTurn(int result)
+    private void ResolveTurn(int result)
     {
         int tilesCount = GridTilesBuilder.Instance.GetTilesCount();
         currentTileCount += result;
         if (currentTileCount > tilesCount)
         {
             currentTileCount -= result;
-            EventController.TriggerEvent(EventID.EVENT_TURN_END, TurnHandler.Instance.pIsLocalPlayerTurn);
+            EventController.TriggerEvent(EventID.EVENT_TURN_END, isLocalPlayer);
             return;
         }
         else if (currentTileCount.Equals(tilesCount))
@@ -48,7 +48,7 @@ public class PlayerBase : MonoBehaviour
         }
 
         MovePlayer();
-        EventController.TriggerEvent(EventID.EVENT_TURN_END, TurnHandler.Instance.pIsLocalPlayerTurn); //Passing the bool state at this point to avoid a potential race condition
+        EventController.TriggerEvent(EventID.EVENT_TURN_END, isLocalPlayer);
     }
 
     private void MovePlayer()
@@ -65,7 +65,7 @@ public class PlayerBase : MonoBehaviour
     #region EventHandlers
     private void HandleDiceRolled(object arg)
     {
-        if(isLocalPlayer == TurnHandler.Instance.pIsLocalPlayerTurn)
+        if(isLocalPlayer == GlobalVariables.pIsLocalPlayerTurn)
         {
             ResolveTurn((int)arg);
         }

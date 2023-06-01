@@ -26,7 +26,14 @@ public class TurnHandler : Singleton<TurnHandler>
     #region EventHandlers
     private void HandleTurnEnd(object arg)
     {
-        isLocalPlayerTurn = !isLocalPlayerTurn;
+        //GlobalVariables.pIsLocalPlayerTurn = !(bool)arg;
+        StartCoroutine(DelayedTurnUpdate(!(bool)arg));
+    }
+    private IEnumerator DelayedTurnUpdate(bool value)
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        GlobalVariables.pIsLocalPlayerTurn = value;
     }
     #endregion
 }

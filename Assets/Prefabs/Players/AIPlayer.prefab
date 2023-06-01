@@ -96,3 +96,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLocalPlayer: 0
   tileData: {fileID: 11400000, guid: b49cbb8d37dc94f4ca85742d77946480, type: 2}
+  turnDelay: 1

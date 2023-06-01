@@ -12,4 +12,6 @@ public enum GameStates
 public class GlobalVariables
 {
     public static GameStates pCurrentGameState { get; set; }
+
+    public static bool pIsLocalPlayerTurn { get; set; }
 }
