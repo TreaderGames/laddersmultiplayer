@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public enum GameStates
 {
     Home,
@@ -14,4 +10,5 @@ public class GlobalVariables
     public static GameStates pCurrentGameState { get; set; }
 
     public static bool pIsLocalPlayerTurn { get; set; }
+    public static bool pIsLocalPlayerWin { get; set; }
 }

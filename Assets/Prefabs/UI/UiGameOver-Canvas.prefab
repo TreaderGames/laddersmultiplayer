@@ -275,7 +275,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4319030727676290461}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1227318073615416907}
+        m_TargetAssemblyTypeName: UiGameOver, Assembly-CSharp
+        m_MethodName: OnClickHome
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4319030727744112564
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,7 +603,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4319030728345730194}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1227318073615416907}
+        m_TargetAssemblyTypeName: UiGameOver, Assembly-CSharp
+        m_MethodName: OnClickRestart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4958124978440272790
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +705,7 @@ GameObject:
   - component: {fileID: 4958124979595012867}
   - component: {fileID: 4958124979595012866}
   - component: {fileID: 4958124979595012865}
-  - component: {fileID: 9009714071547395246}
+  - component: {fileID: 1227318073615416907}
   m_Layer: 5
   m_Name: UiGameOver-Canvas
   m_TagString: Untagged
@@ -770,7 +794,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &9009714071547395246
+--- !u!114 &1227318073615416907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -779,6 +803,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4958124979595012864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f605db9e99b6e564c803cf4bacac6e08, type: 3}
+  m_Script: {fileID: 11500000, guid: bbeec8cacc507c14a996372c19341dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winText: You Win!
+  loseText: You Lose!
+  gameOverText: {fileID: 4319030727579511542}

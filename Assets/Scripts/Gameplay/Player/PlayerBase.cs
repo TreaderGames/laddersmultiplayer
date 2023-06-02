@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class PlayerBase : MonoBehaviour
 {
     [SerializeField] bool isLocalPlayer;
     [SerializeField] TileDataCollection tileData;
+    [SerializeField] Vector3 standbyPosition;
 
     private Dictionary<int, int> tileDataCollection = new Dictionary<int, int>();
 
@@ -19,11 +21,13 @@ public class PlayerBase : MonoBehaviour
     protected virtual void OnEnable()
     {
         EventController.StartListening(EventID.EVENT_DICE_ROLLED, HandleDiceRolled);
+        EventController.StartListening(EventID.EVENT_RESTART, HandleRestart);
     }
 
     protected virtual void OnDisable()
     {
         EventController.StopListening(EventID.EVENT_DICE_ROLLED, HandleDiceRolled);
+        EventController.StopListening(EventID.EVENT_RESTART, HandleRestart);
     }
 
     #endregion
@@ -44,6 +48,7 @@ public class PlayerBase : MonoBehaviour
         }
         else if (currentTileCount.Equals(tilesCount))
         {
+            GlobalVariables.pIsLocalPlayerWin = isLocalPlayer;
             ScreenLoader.Instance.LoadScreen(ScreenType.GameOver, null);
         }
 
@@ -70,5 +75,12 @@ public class PlayerBase : MonoBehaviour
             ResolveTurn((int)arg);
         }
     }
+
+    private void HandleRestart(object arg)
+    {
+        transform.position = standbyPosition;
+        currentTileCount = 0;
+    }
+
     #endregion
 }
