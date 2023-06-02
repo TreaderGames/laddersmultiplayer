@@ -44,7 +44,7 @@ public class PlayerBase : MonoBehaviour
         }
         else if (currentTileCount.Equals(tilesCount))
         {
-            //Handle Game win case
+            ScreenLoader.Instance.LoadScreen(ScreenType.GameOver, null);
         }
 
         MovePlayer();

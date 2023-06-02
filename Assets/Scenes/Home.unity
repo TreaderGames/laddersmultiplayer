@@ -460,6 +460,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIHome-Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7668441252549767, guid: 975bb84fc6be7014a94f9a8f72701de9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 975bb84fc6be7014a94f9a8f72701de9, type: 3}
 --- !u!1001 &8913322435943789057

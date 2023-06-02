@@ -45,7 +45,6 @@ public class UiInGame : MonoBehaviour
         int diceSixRoll = Random.Range(1, 7);
         resultText.text = diceSixRoll.ToString();
         SetButtonState(false);
-        Debug.LogError("Button Trigger dice roll: " + GlobalVariables.pIsLocalPlayerTurn.ToString());
         EventController.TriggerEvent(EventID.EVENT_DICE_ROLLED, diceSixRoll);
         UpdateTurnText(false);
     }
