@@ -23,11 +23,18 @@ public class PlayerController : MonoBehaviour
         {
             playerBase = Instantiate<PlayerBase>(playerGroup[i], transform);
             playerBase.SetToStandByPosition();
-        }
 
-        if (GlobalVariables.pCurrentGameState.Equals(GameStates.Multiplayer))
-        {
-            playerGroup[0].SetIsLocalPlayer(NetworkHandler.pInstance.GetIsMaster());
+            if (GlobalVariables.pCurrentGameState.Equals(GameStates.Multiplayer))
+            {
+                if (i == 0)
+                {
+                    playerBase.SetIsLocalPlayer(NetworkHandler.pInstance.GetIsMaster());
+                }
+                else
+                {
+                    playerBase.SetIsLocalPlayer(!NetworkHandler.pInstance.GetIsMaster());
+                }
+            }
         }
     }
     #endregion
