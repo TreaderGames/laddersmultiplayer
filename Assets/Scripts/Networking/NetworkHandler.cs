@@ -58,7 +58,7 @@ public class NetworkHandler : MonoBehaviourPunCallbacks
 
     public void SendResultOfRoll(int result)
     {
-        RaisePhotonEvent(EventCodes.ROLL_RESULT, result, ReceiverGroup.Others);
+        RaisePhotonEvent(EventCodes.ROLL_RESULT, result, ReceiverGroup.All);
     }
 
     #endregion

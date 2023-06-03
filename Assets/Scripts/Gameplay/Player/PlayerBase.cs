@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerBase : MonoBehaviour
 {
-    [SerializeField] bool isLocalPlayer;
+    [SerializeField] protected bool isLocalPlayer;
     [SerializeField] TileDataCollection tileData;
     [SerializeField] Vector3 standbyPosition;
 
