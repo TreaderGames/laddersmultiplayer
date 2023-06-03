@@ -1,4 +1,5 @@
 using Photon.Pun;
+using UnityEngine;
 
 public class NetworkHandler : MonoBehaviourPunCallbacks
 {
@@ -17,12 +18,14 @@ public class NetworkHandler : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         base.OnConnectedToMaster();
+        Debug.Log("Photon Connected");
         PhotonNetwork.JoinRandomOrCreateRoom(null, LaddersConfig.MAX_PLAYERS);
     }
 
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
+        Debug.Log("Photon Joined Room");
         playerCount++;
         if(playerCount.Equals(LaddersConfig.MAX_PLAYERS))
         {

@@ -32,6 +32,7 @@ public class UiHomeScreen : MonoBehaviour
     private void HandleAllPlayersJoinedRoom(object arg)
     {
         SceneManager.LoadSceneAsync(LaddersConfig.GAMEPLAY_SCENE);
+        EventController.StopListening(EventID.EVENT_PHOTON_ALL_PLAYERS_JOINED, HandleAllPlayersJoinedRoom);
     }
     #endregion
 }
