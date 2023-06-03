@@ -7,6 +7,11 @@ using UnityEngine.SceneManagement;
 public class UiHomeScreen : MonoBehaviour
 {
     #region Unity
+    private void OnEnable()
+    {
+        EventController.StartListening(EventID.EVENT_PHOTON_ALL_PLAYERS_JOINED, HandleAllPlayersJoinedRoom);
+    }
+
     private void OnDisable()
     {
         EventController.StopListening(EventID.EVENT_PHOTON_ALL_PLAYERS_JOINED, HandleAllPlayersJoinedRoom);
@@ -22,7 +27,6 @@ public class UiHomeScreen : MonoBehaviour
 
     public void OnClickMultiplayer()
     {
-        EventController.StartListening(EventID.EVENT_PHOTON_ALL_PLAYERS_JOINED, HandleAllPlayersJoinedRoom);
         NetworkHandler.StartConnectionAndJoinRoom();
     }
 
@@ -32,7 +36,6 @@ public class UiHomeScreen : MonoBehaviour
     private void HandleAllPlayersJoinedRoom(object arg)
     {
         SceneManager.LoadSceneAsync(LaddersConfig.GAMEPLAY_SCENE);
-        EventController.StopListening(EventID.EVENT_PHOTON_ALL_PLAYERS_JOINED, HandleAllPlayersJoinedRoom);
     }
     #endregion
 }

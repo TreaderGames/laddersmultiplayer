@@ -11,8 +11,6 @@ public enum EventCodes
 
 public class NetworkHandler : MonoBehaviourPunCallbacks
 {
-    private static byte playerCount;
-
     #region Unity
     public override void OnEnable()
     {
@@ -31,7 +29,6 @@ public class NetworkHandler : MonoBehaviourPunCallbacks
 
     public static void StartConnectionAndJoinRoom()
     {
-        playerCount = 0;
         PhotonNetwork.ConnectUsingSettings();
     }
 
