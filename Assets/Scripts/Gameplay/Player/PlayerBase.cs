@@ -32,7 +32,16 @@ public class PlayerBase : MonoBehaviour
 
     #endregion
 
-    #region Protected
+    #region Public
+    public void SetIsLocalPlayer(bool value)
+    {
+        isLocalPlayer = value;
+    }
+
+    public void SetToStandByPosition()
+    {
+        transform.position = standbyPosition;
+    }
     #endregion
 
     #region Private

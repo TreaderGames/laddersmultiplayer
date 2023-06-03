@@ -11,7 +11,30 @@ public enum EventCodes
 
 public class NetworkHandler : MonoBehaviourPunCallbacks
 {
+    public static NetworkHandler pInstance { get; private set; }
+    public bool GetIsMaster() { return PhotonNetwork.IsMasterClient; }
+
     #region Unity
+    private void Start()
+    {
+        #region SingletonLogic
+
+        if (pInstance == null)
+        {
+            pInstance = this;
+        }
+        else
+        {
+            if (pInstance != this)
+            {
+                Destroy(pInstance.gameObject);
+                pInstance = null;
+            }
+        }
+
+        #endregion
+    }
+
     public override void OnEnable()
     {
         base.OnEnable();
@@ -80,8 +103,6 @@ public class NetworkHandler : MonoBehaviourPunCallbacks
         base.OnCreatedRoom();
         Debug.Log("Photon Created Room");
     }
-
-
 
     private void OnEvent(EventData eventData)
     {

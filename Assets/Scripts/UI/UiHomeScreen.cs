@@ -27,6 +27,7 @@ public class UiHomeScreen : MonoBehaviour
 
     public void OnClickMultiplayer()
     {
+        GlobalVariables.pCurrentGameState = GameStates.Multiplayer;
         NetworkHandler.StartConnectionAndJoinRoom();
     }
 
@@ -35,6 +36,7 @@ public class UiHomeScreen : MonoBehaviour
     #region EventHandlers
     private void HandleAllPlayersJoinedRoom(object arg)
     {
+        GlobalVariables.pIsLocalPlayerTurn = NetworkHandler.pInstance.GetIsMaster();
         SceneManager.LoadSceneAsync(LaddersConfig.GAMEPLAY_SCENE);
     }
     #endregion
