@@ -7,6 +7,7 @@ using UnityEngine;
 public enum EventCodes
 {
     START_GAME,
+    ROLL_RESULT,
 }
 
 public class NetworkHandler : MonoBehaviourPunCallbacks
@@ -53,6 +54,11 @@ public class NetworkHandler : MonoBehaviourPunCallbacks
     public static void StartConnectionAndJoinRoom()
     {
         PhotonNetwork.ConnectUsingSettings();
+    }
+
+    public void SendResultOfRoll(int result)
+    {
+        RaisePhotonEvent(EventCodes.ROLL_RESULT, result, ReceiverGroup.Others);
     }
 
     #endregion
@@ -110,6 +116,10 @@ public class NetworkHandler : MonoBehaviourPunCallbacks
         if (eventCode == (byte)EventCodes.START_GAME)
         {
             EventController.TriggerEvent(EventID.EVENT_PHOTON_ALL_PLAYERS_JOINED);
+        }
+        else if (eventCode == (byte)EventCodes.ROLL_RESULT)
+        {
+            EventController.TriggerEvent(EventID.EVENT_DICE_ROLLED, (int)eventData.CustomData);
         }
     }
     #endregion

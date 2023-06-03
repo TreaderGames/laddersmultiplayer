@@ -77,7 +77,7 @@ public class PlayerBase : MonoBehaviour
     #endregion
 
     #region EventHandlers
-    private void HandleDiceRolled(object arg)
+    protected virtual void HandleDiceRolled(object arg)
     {
         if(isLocalPlayer == GlobalVariables.pIsLocalPlayerTurn)
         {
