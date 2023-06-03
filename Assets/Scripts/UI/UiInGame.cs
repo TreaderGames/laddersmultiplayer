@@ -45,7 +45,14 @@ public class UiInGame : MonoBehaviour
         int diceSixRoll = Random.Range(1, 7);
         resultText.text = diceSixRoll.ToString();
         SetButtonState(false);
-        EventController.TriggerEvent(EventID.EVENT_DICE_ROLLED, diceSixRoll);
+        if (GlobalVariables.pCurrentGameState.Equals(GameStates.SinglePlayer))
+        {
+            EventController.TriggerEvent(EventID.EVENT_DICE_ROLLED, diceSixRoll);
+        }
+        else
+        {
+            NetworkHandler.pInstance.SendResultOfRoll(diceSixRoll);
+        }
         UpdateTurnText(false);
     }
     #endregion

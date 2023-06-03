@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerBase : MonoBehaviour
 {
-    [SerializeField] bool isLocalPlayer;
+    [SerializeField] protected bool isLocalPlayer;
     [SerializeField] TileDataCollection tileData;
     [SerializeField] Vector3 standbyPosition;
 
@@ -32,7 +32,16 @@ public class PlayerBase : MonoBehaviour
 
     #endregion
 
-    #region Protected
+    #region Public
+    public void SetIsLocalPlayer(bool value)
+    {
+        isLocalPlayer = value;
+    }
+
+    public void SetToStandByPosition()
+    {
+        transform.position = standbyPosition;
+    }
     #endregion
 
     #region Private
@@ -68,7 +77,7 @@ public class PlayerBase : MonoBehaviour
     #endregion
 
     #region EventHandlers
-    private void HandleDiceRolled(object arg)
+    protected virtual void HandleDiceRolled(object arg)
     {
         if(isLocalPlayer == GlobalVariables.pIsLocalPlayerTurn)
         {
