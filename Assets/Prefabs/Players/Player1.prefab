@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 253322864909862419}
   - component: {fileID: 253322864909862418}
   - component: {fileID: 253322864909862421}
-  - component: {fileID: -7766725188347348155}
+  - component: {fileID: 6658061528491079676}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -82,7 +82,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-7766725188347348155
+--- !u!114 &6658061528491079676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 253322864909862423}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1b6735fc516db443933f6ff5cdcb025, type: 3}
+  m_Script: {fileID: 11500000, guid: a83e26fa9f8c5cf47a87ad21065f9133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isLocalPlayer: 0

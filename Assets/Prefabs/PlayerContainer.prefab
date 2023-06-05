@@ -47,5 +47,5 @@ MonoBehaviour:
   - {fileID: 7601115498278742396, guid: 70dbce65c478c14458120c08e2e432fa, type: 3}
   - {fileID: 1275948922292842423, guid: 8fb0bb18fc678eb41982627ec33b9019, type: 3}
   multiplayerGroup:
-  - {fileID: -7766725188347348155, guid: fec69ed6b3fcfd94ab35dd4785e5c2e7, type: 3}
-  - {fileID: 544249515011777046, guid: a95aedb30d1bb82469cd7550d6c43d9c, type: 3}
+  - {fileID: 6658061528491079676, guid: fec69ed6b3fcfd94ab35dd4785e5c2e7, type: 3}
+  - {fileID: 8180288047443000153, guid: a95aedb30d1bb82469cd7550d6c43d9c, type: 3}

@@ -28,7 +28,7 @@ public class UiHomeScreen : MonoBehaviour
     public void OnClickMultiplayer()
     {
         GlobalVariables.pCurrentGameState = GameStates.Multiplayer;
-        NetworkHandler.StartConnectionAndJoinRoom();
+        NetworkHandler.pInstance.StartConnectionAndJoinRoom();
     }
 
     #endregion
