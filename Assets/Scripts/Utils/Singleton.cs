@@ -4,16 +4,10 @@
 /// Be aware this will not prevent a non singleton constructor
 ///   such as `T myT = new T();`
 /// To prevent that, add `protected T () {}` to your singleton class.
-/// 
-/// As a note, this is made as MonoBehaviour because we need Coroutines.
-/// 
-/// References
-/// http://wiki.unity3d.com/index.php/Singleton
-/// http://www.bivis.com.br/2016/05/04/unity-reusable-singleton-tutorial/
-/// </summary>
+
 public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private static T _instance;
+    private static T instance;
 
     private static object _lock = new object();
     private void Awake()
@@ -34,19 +28,16 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
             lock (_lock)
             {
-                if (_instance == null)
+                if (instance == null)
                 {
-                    _instance = (T)FindObjectOfType(typeof(T));
+                    instance = (T)FindObjectOfType(typeof(T));
 
                     if (FindObjectsOfType(typeof(T)).Length > 1)
                     {
-                        Debug.LogError("[Singleton] Something went really wrong " +
-                            " - there should never be more than 1 singleton!" +
-                            " Reopening the scene might fix it."+typeof(T).FullName);
-                        return _instance;
+                        return instance;
                     }
 
-                    if (_instance == null)
+                    if (instance == null)
                     {
                         Debug.LogWarning("[Singleton] Does not exist in the scene.");
 
@@ -65,11 +56,11 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                     else
                     {
                         Debug.Log("[Singleton] Using instance already created: " +
-                            _instance.gameObject.name);
+                            instance.gameObject.name);
                     }
                 }
 
-                return _instance;
+                return instance;
             }
         }
     }
