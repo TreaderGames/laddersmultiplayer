@@ -75,5 +75,12 @@ public class NetworkHandler : NetworkBase
             EventController.TriggerEvent(EventID.EVENT_DICE_ROLLED, (int)eventData.CustomData);
         }
     }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        base.OnPlayerLeftRoom(otherPlayer);
+
+        EventController.TriggerEvent(EventID.EVENT_PHOTON_PLAYER_DISCONNECTED, otherPlayer.IsLocal);
+    }
     #endregion
 }

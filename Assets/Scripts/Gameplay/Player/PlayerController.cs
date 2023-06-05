@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,16 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         InitiateBasedOnGameMode();
+    }
+
+    private void OnEnable()
+    {
+        EventController.StartListening(EventID.EVENT_PHOTON_PLAYER_DISCONNECTED, HandlePlayerDisconnected);
+    }
+
+    private void OnDisable()
+    {
+        EventController.StopListening(EventID.EVENT_PHOTON_PLAYER_DISCONNECTED, HandlePlayerDisconnected);
     }
     #endregion
 
@@ -36,6 +47,15 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+    }
+    #endregion
+
+    #region EventHandlers
+
+    private void HandlePlayerDisconnected(object arg)
+    {
+        GlobalVariables.pIsLocalPlayerWin = !(bool)arg;
+        ScreenLoader.Instance.LoadScreen(ScreenType.GameOver, null);
     }
     #endregion
 }

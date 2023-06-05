@@ -62,6 +62,11 @@ public class NetworkBase : MonoBehaviourPunCallbacks
         }
     }
 
+    public void Disconnect()
+    {
+        PhotonNetwork.Disconnect();
+    }
+
     #endregion
 
     #region EventHandlers
